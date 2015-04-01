@@ -1,0 +1,49 @@
+<%- model_class = Wishlist -%>
+<div class="page-header">
+  <h1><%=t '.title', :default => model_class.model_name.human.titleize %></h1>
+</div>
+<table class="table table-striped">
+  <thead>
+    <tr>
+      <th><%= model_class.human_attribute_name(:id) %></th>
+      <th><%= model_class.human_attribute_name(:name) %></th>
+      <th><%= model_class.human_attribute_name(:price) %></th>
+      <th><%= "Dis(%)" %></th>
+      <th><%= model_class.human_attribute_name(:description) %></th>
+      <th><%= model_class.human_attribute_name(:category) %></th>
+      <th><%= model_class.human_attribute_name(:instock) %></th>
+      <th><%= "Picture" %></th>
+      <th><%= "Added" %></th>
+      <th><%=t '.actions', :default => t("helpers.actions") %></th>
+      
+
+    </tr>
+  </thead>
+ <tbody>
+<% @wishitems.each do |product| %>
+      <tr>
+        <td><%= link_to product.itemid, product_path(product.itemid) %></td>
+        <% itemdetails(product.itemid)%>
+        <td><%= @itemdetails.name %></td>
+        <td><%= @itemdetails.price %></td>
+        <td><%= @itemdetails.discount %></td>
+        <td><%= @itemdetails.description %></td>
+        <td><%= @itemdetails.category %></td>
+        <td><%= @itemdetails.instock %></td>
+        <td><%= image_tag @itemdetails.avatar.url(:thumb) %></td>
+        <td><%= time_ago_in_words(product.created_at) + " ago" %></td>
+        <td>
+          <%= link_to "remove",
+                      wishlist_path(product.itemid),
+                      :method => :delete,
+                      :data => { :confirm => t('.confirm', :default => t("helpers.links.confirm", :default => 'Are you sure?')) },
+                      :class => 'btn btn-xs btn-danger' %>
+
+        </td>
+        <td>
+        
+        </td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>

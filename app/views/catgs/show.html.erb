@@ -19,7 +19,9 @@
               :method => 'delete',
               :data => { :confirm => t('.confirm', :default => t("helpers.links.confirm", :default => 'Are you sure?')) },
               :class => 'btn btn-danger' %>
-<br/>
+<hr/>
+<%= page_entries_info @catg_products %>
+<hr/>
 <table class="table table-striped">
   <thead>
     <tr>
@@ -50,3 +52,4 @@
     <% end %>
   </tbody>
 </table>
+<%= paginate @catg_products,:theme => 'twitter-bootstrap' %>
