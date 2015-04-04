@@ -3,6 +3,7 @@
   <h1><%=t '.title', :default => model_class.model_name.human.titleize %></h1>
 </div>
 
+<!--
 <dl class="dl-horizontal">
   <dt><strong><%= model_class.human_attribute_name(:name) %>:</strong></dt>
   <dd><%= @product.name %></dd>
@@ -19,6 +20,36 @@
   <dt><strong><%= model_class.human_attribute_name(:avatar) %>:</strong></dt>
   <dd><%= image_tag @product.avatar.url(:thumb)%></dd>
 </dl>
+-->
+<div class="row">
+        <div class="col-md-3 col-md-offset-1" style="height: 400px;">
+            <%= image_tag @product.avatar.url(:large)%>
+        </div>
+        <div class="col-md-6 col-md-offset-1" style="height: 400px;">
+            <h1><%= @product.name %></h1>
+            <hr>
+            <div class="row">
+                <div class="col-md-10">
+                    <p class="text-justify">
+                        <%= @product.description %>
+                    </p>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-md-4" style="height: 100px;">
+                    <h3><%= @product.price %><br/>
+                    <small><%= @product.discount %>% OFF</small></h3>
+                </div>
+                <div class="col-md-8" style="height: 20px;">
+                </div>
+                <div class="col-md-8">
+                    <button type="button" class="btn btn-primary btn-lg">Add to Cart</button>
+                    <button type="button" class="btn btn-success btn-lg">Buy Now</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
 
 <%= link_to t('.back', :default => t("helpers.links.back")),
               products_path, :class => 'btn btn-default'  %>
