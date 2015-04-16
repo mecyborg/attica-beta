@@ -25,6 +25,7 @@
         <%if current_user %>
         <li><%= link_to "Wishlist",wishlists_path %></li>
         <%end%>
+        <li>
         <p class="navbar-text pull-right">
         <% if user_signed_in? %>
           Logged in as <strong><%= current_user.email %></strong>.
@@ -34,6 +35,9 @@
           <%= link_to "Sign up", new_user_registration_path, :class => 'navbar-link'  %> |
           <%= link_to "Login", new_user_session_path, :class => 'navbar-link'  %>
         <% end %>
+        </p>
+        </li>
+        <li><%= link_to "Search",search_path %></li>
       </ul>
     </div><!--/.nav-collapse -->
   </div>
