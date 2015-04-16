@@ -4,6 +4,9 @@ class ProductsController < ApplicationController
   # GET /products
   # GET /products.json
   def index
+
+    @products = Product.all
+    @order_item = current_order.order_items.new
     @products = Product.page(params[:page]).per(2)
   end
 

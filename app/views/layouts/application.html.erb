@@ -22,6 +22,7 @@
       <ul class="nav navbar-nav">
         <li><%= link_to "Products",products_path %></li>
         <li><%= link_to "Category",catgs_path %></li>
+        <li class="cart-text"><%= render 'layouts/cart_text' %></li>
         <%if current_user %>
         <li><%= link_to "Wishlist",wishlists_path %></li>
         <%end%>
