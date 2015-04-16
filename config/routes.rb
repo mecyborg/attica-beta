@@ -1,4 +1,5 @@
 Rails.application.routes.draw do
+
   get 'order_items/create'
 
   get 'order_items/update'
@@ -7,12 +8,24 @@ Rails.application.routes.draw do
 
   get 'carts/show'
 
+
+  mount RailsAdmin::Engine => '/admin', as: 'rails_admin'
+
   devise_for :users
   resources :products
 
   resources :catgs
+
   resource :cart, only: [:show]
   resources :order_items, only: [:create, :update, :destroy]
+
+  resources :wishlists
+
+  get 'search', to: 'search#search'
+
+  get "addwishlist" => "wishlists#addnew"
+
+
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
 

@@ -4,13 +4,13 @@ class CatgsController < ApplicationController
   # GET /catgs
   # GET /catgs.json
   def index
-    @catgs = Catg.all
+    @catgs = Catg.page(params[:page]).per(2)
   end
 
   # GET /catgs/1
   # GET /catgs/1.json
   def show
-    @catg_products = Product.where(category: params[:id])
+    @catg_products = Product.where(category: params[:id]).page(params[:page]).per(2)
   end
 
   # GET /catgs/new

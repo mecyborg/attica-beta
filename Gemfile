@@ -27,15 +27,20 @@ gem 'unicorn-rails'
 # Use ActiveModel has_secure_password
 # gem 'bcrypt', '~> 3.1.7'
 gem "paperclip", "~> 4.2"
+gem 'kaminari'
+gem 'bootstrap-kaminari-views'
 # Use Unicorn as the app server
 # gem 'unicorn'
 # group :assets do
 #   gem 'twitter-bootstrap-rails'
 # end
-gem 'will_paginate'
-gem 'bootstrap-will_paginate'
+# gem 'will_paginate'
+# gem 'bootstrap-will_paginate'
+gem 'rails_admin'
 gem 'faker'
 gem 'devise'
+gem 'elasticsearch-model'
+gem 'elasticsearch-rails'
 # Use Capistrano for deployment
 # gem 'capistrano-rails', group: :development
 
@@ -47,7 +52,7 @@ group :development, :test do
   #gem 'web-console', '~> 2.0'
 
   # Spring speeds up development by keeping your application running in the background. Read more: https://github.com/rails/spring
-  gem 'spring'
+  #gem 'spring'
   gem "rack-mini-profiler"
   gem 'rails-footnotes', '~> 4.0'
 end

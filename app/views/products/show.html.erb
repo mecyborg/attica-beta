@@ -19,6 +19,13 @@
   <dd><%= @product.instock %></dd>
   <dt><strong><%= model_class.human_attribute_name(:avatar) %>:</strong></dt>
   <dd><%= image_tag @product.avatar.url(:thumb)%></dd>
+<dd>
+  <%#= link_to "Wishlist",addwishlist_path(@product.name), :class => 'btn btn-success btn-xs' %>
+  <%= form_for [Wishlist.new] do |f| %>
+  <div><%= hidden_field_tag :itemid, @product.id %></div>
+  <%= f.submit "Add to Wishlist", class: "btn btn-success" %>
+<% end %></dd>
+
 </dl>
 -->
 <div class="row">

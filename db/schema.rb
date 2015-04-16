@@ -11,7 +11,11 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
+<<<<<<< HEAD
 ActiveRecord::Schema.define(version: 20150404163633) do
+=======
+ActiveRecord::Schema.define(version: 20150330172622) do
+>>>>>>> 32051abc9bb8f3908ce10b006439b2845c0d21c0
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -87,7 +91,17 @@ ActiveRecord::Schema.define(version: 20150404163633) do
   add_index "users", ["email"], name: "index_users_on_email", unique: true, using: :btree
   add_index "users", ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true, using: :btree
 
+<<<<<<< HEAD
   add_foreign_key "order_items", "orders"
   add_foreign_key "order_items", "products"
   add_foreign_key "orders", "order_statuses"
+=======
+  create_table "wishlists", force: :cascade do |t|
+    t.string   "username"
+    t.integer  "itemid"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
+>>>>>>> 32051abc9bb8f3908ce10b006439b2845c0d21c0
 end
